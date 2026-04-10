@@ -163,21 +163,18 @@ export default function BinaryTreeVisualizer({
 
   useEffect(() => {
     if (isPlaying && history.length > 1 && !isChallengeMode) {
-      timerRef.current = setInterval(() => {
-        setCurrentIndex(prev => {
-          if (prev < history.length - 1) return prev + 1;
-          clearInterval(timerRef.current!);
-          onComplete();
-          return prev;
-        });
-      }, 2000 / speed);
-    } else if (timerRef.current) {
-      clearInterval(timerRef.current);
+      if (currentIndex < history.length - 1) {
+        timerRef.current = setTimeout(() => {
+          setCurrentIndex(prev => prev + 1);
+        }, 2000 / speed);
+      } else {
+        onComplete();
+      }
     }
     return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
+      if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [isPlaying, speed, history.length, isChallengeMode]);
+  }, [isPlaying, speed, history.length, isChallengeMode, currentIndex]);
 
   const handleCustomDataSubmit = (e: React.FormEvent) => {
     e.preventDefault();

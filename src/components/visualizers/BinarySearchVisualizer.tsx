@@ -147,19 +147,18 @@ export default function BinarySearchVisualizer({
 
   useEffect(() => {
     if (isPlaying && isSearching && !isChallengeMode) {
-      timerRef.current = setInterval(() => {
-        setCurrentIndex(prev => {
-          if (prev < binarySteps.length - 1) return prev + 1;
-          clearInterval(timerRef.current!);
-          onComplete();
-          return prev;
-        });
-      }, 2000 / speed);
+      if (currentIndex < binarySteps.length - 1) {
+        timerRef.current = setTimeout(() => {
+          setCurrentIndex(prev => prev + 1);
+        }, 2000 / speed);
+      } else {
+        onComplete();
+      }
     }
     return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
+      if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [isPlaying, speed, isSearching, isChallengeMode, binarySteps.length]);
+  }, [isPlaying, speed, isSearching, isChallengeMode, binarySteps.length, currentIndex]);
 
   // Story sync
   useEffect(() => {
