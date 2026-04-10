@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;600;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Professional Color Palette */
+  --color-blue: #3b82f6;
+  --color-amber: #f59e0b;
+  --color-emerald: #10b981;
+  --color-violet: #8b5cf6;
+  
+  /* Clean Dark Theme (Zinc) */
+  --color-dark-bg: #09090b;
+  --color-dark-surface: #18181b;
+  --color-dark-border: #27272a;
+}
+
+:root {
+  /* Map old neon variables to the new professional palette for backward compatibility */
+  --color-neon-cyan: var(--color-blue);
+  --color-neon-pink: var(--color-amber);
+  --color-neon-green: var(--color-emerald);
+  --color-neon-purple: var(--color-violet);
+  --color-neon-yellow: var(--color-amber);
+}
+
+body {
+  background-color: var(--color-dark-bg);
+  color: #f4f4f5;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-dark-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-blue);
+}
+
+.glass-panel {
+  background: rgba(24, 24, 27, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Redefined utility classes for a clean, professional glow instead of harsh neon */
+.neon-text-cyan {
+  text-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+}
+
+.neon-text-green {
+  text-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
+}
+
+.neon-border-cyan {
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.neon-border-pink {
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.neon-border-green {
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.neon-border-purple {
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.15);
+  border-color: rgba(139, 92, 246, 0.4);
+}
