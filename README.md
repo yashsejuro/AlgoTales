@@ -4,8 +4,6 @@
 
 AlgoTales walks you through a concept one step at a time: the algorithm moves, a narration panel explains what it is thinking, and the matching line of code lights up beside it. Four concepts are playable today — binary search, stack, linked list and binary tree.
 
-🔗 **Live:** [algo-tales.vercel.app](https://algo-tales.vercel.app)
-
 ![AlgoTales banner](https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6)
 
 ## Why
